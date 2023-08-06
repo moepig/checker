@@ -24,6 +24,7 @@ dependencies {
 	runtimeOnly("com.mysql:mysql-connector-j")
 	runtimeOnly("org.postgresql:postgresql")
 	testImplementation("org.springframework.boot:spring-boot-starter-test")
+	testImplementation("org.springframework.boot:spring-boot-docker-compose")
 	testCompileOnly ("org.projectlombok:lombok")
 	testAnnotationProcessor("org.projectlombok:lombok")
 }
