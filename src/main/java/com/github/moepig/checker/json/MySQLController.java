@@ -27,7 +27,7 @@ public class MySQLController {
     }
 
     @GetMapping("")
-    public MySQLResponse greeting() {
+    public MySQLResponse check() {
         var responseData = new MySQLResponse();
 
         responseData.setConfig(_config);
