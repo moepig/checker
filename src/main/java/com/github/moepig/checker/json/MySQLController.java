@@ -19,8 +19,12 @@ import java.sql.SQLException;
 public class MySQLController {
     private static final Logger _logger = LoggerFactory.getLogger(MySQLController.class);
 
+    private final MySQLConfig _config;
+
     @Autowired
-    private MySQLConfig _config;
+    public MySQLController(MySQLConfig config) {
+        _config = config;
+    }
 
     @GetMapping("")
     public MySQLResponse greeting() {
