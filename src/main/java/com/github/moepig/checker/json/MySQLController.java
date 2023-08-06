@@ -12,7 +12,6 @@ import org.springframework.web.bind.annotation.RestController;
 
 import java.net.InetAddress;
 import java.net.UnknownHostException;
-import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
 
@@ -47,9 +46,8 @@ public class MySQLController {
         }
 
         // 実プロトコルでの接続チェック
-        Connection connection = null;
         try {
-            connection = DriverManager.getConnection(
+            var connection = DriverManager.getConnection(
                     "jdbc:mysql://" + _config.getHost() + ":" + _config.getPort() + "/" + _config.getSchema() + "?useSSL=false&allowPublicKeyRetrieval=true",
                     _config.getUsername(),
                     _config.getPassword()

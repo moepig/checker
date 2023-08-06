@@ -25,12 +25,14 @@ public class MySQLControllerTests {
         var responseEntity = controller.check();
         var response = responseEntity.getBody();
 
+        assertNotNull(response);
+
         // レスポンスボディに変換されるオブジェクトの検査
         assertTrue(response.isOk());
         assertNotNull(response.getDnsResolveResult());
         assertNotNull(response.getDatabaseName());
         assertNotNull(response.getDatabaseVersion());
-        assertTrue(response.getConfig().equals(config));
+        assertEquals(config, response.getConfig());
 
         // HTTP の取り扱いの検査
         assertEquals(HttpStatus.OK, responseEntity.getStatusCode());
@@ -49,12 +51,14 @@ public class MySQLControllerTests {
         var responseEntity = controller.check();
         var response = responseEntity.getBody();
 
+        assertNotNull(response);
+
         // レスポンスボディに変換されるオブジェクトの検査
         assertFalse(response.isOk());
         assertNull(response.getDnsResolveResult());
         assertNull(response.getDatabaseName());
         assertNull(response.getDatabaseVersion());
-        assertTrue(response.getConfig().equals(config));
+        assertEquals(config, response.getConfig());
 
         // HTTP の取り扱いの検査
         assertEquals(HttpStatus.INTERNAL_SERVER_ERROR, responseEntity.getStatusCode());
@@ -73,12 +77,14 @@ public class MySQLControllerTests {
         var responseEntity = controller.check();
         var response = responseEntity.getBody();
 
+        assertNotNull(response);
+
         // レスポンスボディに変換されるオブジェクトの検査
         assertFalse(response.isOk());
         assertNotNull(response.getDnsResolveResult());
         assertNull(response.getDatabaseName());
         assertNull(response.getDatabaseVersion());
-        assertTrue(response.getConfig().equals(config));
+        assertEquals(config, response.getConfig());
 
         // HTTP の取り扱いの検査
         assertEquals(HttpStatus.INTERNAL_SERVER_ERROR, responseEntity.getStatusCode());
