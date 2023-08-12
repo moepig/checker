@@ -20,4 +20,8 @@ services:
     image: 'redis:latest'
     ports:
       - '6379:6379'
-
+  elasticmq:
+    image: 'softwaremill/elasticmq'
+    ports:
+      - "9324:9324"  # エンドポイント
+      - "9325:9325"  # 管理
